@@ -2,22 +2,27 @@
 #include <vector>
 using namespace std;
 
-//singly linked list
-struct ListNode {
-	int val;
-	ListNode *next;
-	ListNode() : val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
- 
 class Solution {
 public:
-	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-		while (l1->next == NULL && l2->next == NULL) {
-
+    std::vector<int> twoSum(std::vector<int>& nums, int target) {
+		int n = nums.size();
+		int val;
+		std::vector<int> ans;
+		bool breakl = false;
+		ans.clear();
+		for (int i = 0; i < n-1 || breakl; i++) {
+			for (int j = i + 1; j < n; j++) {
+				val = nums.operator[](i) + nums.operator[](j);
+				if (val == target) {
+					ans.push_back(i);
+					ans.push_back(j);
+					return ans;
+				}
+			}
 		}
-	}
+		std::cout << "there is no right sums for the target value.\n";
+		return ans;
+    }
 };
 
 int main() {
@@ -30,4 +35,3 @@ int main() {
 	std::cout << "[" << ans.operator[](0) << "," << ans.operator[](1) << "]\n";
 	return 0;
 }
-
