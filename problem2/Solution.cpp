@@ -42,6 +42,26 @@ public:
         }
         return arr;
     }
+
+    int* list2int(ListNode*ln){
+        static int num = 0;
+        int i = 0;
+        while(ln->next->val == NULL){
+            num = (num*10)+ln->val;
+            i++;
+            ln = ln->next;
+        }
+    }
+
+    ListNode* int2list(int* num){
+        static int num = 0;
+        int i = 0;
+        while(ln->next->val == NULL){
+            num = (num*10)+ln->val;
+            i++;
+            ln = ln->next;
+        }
+    }
 };
 
 int main(void) {
